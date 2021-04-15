@@ -41,9 +41,9 @@ steps:
 # copies arm template provisioning files
 - task: CopyFiles@2
   inputs:
-    SourceFolder: 'Provisioning'
+    SourceFolder: 'mywebapparm/Provisioning'
     Contents: '**'
-    TargetFolder: '$(build.artifactstagingdirectory)\Provisioning'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\Provisioning'
     
 # this code takes all the files in $(Build.ArtifactStagingDirectory) and uploads them as an artifact of your build.
 - task: PublishBuildArtifacts@1
