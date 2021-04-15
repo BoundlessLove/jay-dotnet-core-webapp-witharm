@@ -39,14 +39,25 @@ steps:
     zipAfterPublish: True
 
 # copies arm template provisioning files
-- task: CopyFiles@2
-  inputs:
+#- task: CopyFiles@2
+ # inputs:
     #SourceFolder: 'Provisioning'
-    Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)\Provisioning'
+  #  Contents: '**'
+  #  TargetFolder: '$(Build.ArtifactStagingDirectory)\Provisioning'
     
 # this code takes all the files in $(Build.ArtifactStagingDirectory) and uploads them as an artifact of your build.
-- task: PublishBuildArtifacts@1
+#- task: PublishBuildArtifacts@1
+ # inputs:
+  #  pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
+  #  artifactName: 'drop'
+  
+
+- task: PublishPipelineArtifact@1
   inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'drop'
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'drop'
+    publishLocation: 'pipeline'
+- task: CopyFiles@2
+  inputs:
+    Contents: '**'
+    TargetFolder: '$(Pipeline.Workspace)\Provisioning'
