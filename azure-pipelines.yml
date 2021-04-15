@@ -41,7 +41,7 @@ steps:
 # copies arm template provisioning files
 - task: CopyFiles@2
   inputs:
-    SourceFolder: 'mywebapparm/Provisioning'
+    SourceFolder: 'jay-dotnet-core-webapp-witharm/Provisioning'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)\Provisioning'
     
