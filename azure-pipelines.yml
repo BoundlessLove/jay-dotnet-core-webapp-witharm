@@ -41,7 +41,7 @@ steps:
 # copies arm template provisioning files
 - task: CopyFiles@2
   inputs:
-    SourceFolder: 'Provisioning'
+    #SourceFolder: 'Provisioning'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)\Provisioning'
     
