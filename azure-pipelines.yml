@@ -51,10 +51,10 @@ steps:
   #  pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
   #  artifactName: 'drop'
   
-- task: CopyFiles@2
-  inputs:
-    Contents: '**'
-    TargetFolder: '$(Pipeline.Workspace)\Provisioning'
+#- task: CopyFiles@2
+#  inputs:
+#    Contents: '**'
+#    TargetFolder: '$(Pipeline.Workspace)\Provisioning'
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Pipeline.Workspace)'
